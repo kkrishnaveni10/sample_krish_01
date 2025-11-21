@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amber Smith — Blog Layout</title>
+
+  <!-- FONT AWESOME FOR SOCIAL ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --cream:#efe9df;
+      --sage:#c7d3c3;
+      --deep-sage:#6f836e;
+      --peach:#e9c9a8;
+      --muted:#9aa39a;
+      --accent:#b6c6b0;
+      --max-width:900px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Inter, system-ui;
+      background:var(--sage);
+      color:#333;
+    }
+
+    .container{
+      max-width:var(--max-width);
+      margin:48px auto;
+      background:#fff;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    /* HEADER */
+    header{
+      padding:28px 40px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+    .brand{
+      font-family:'Playfair Display', serif;
+      font-size:28px;
+      color:var(--deep-sage);
+    }
+    .tagline{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:4px;
+    }
+    nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    nav a{
+      font-size:13px;
+      color:var(--muted);
+      text-decoration:none;
+    }
+
+    /* HERO */
+    .hero{position:relative}
+    .hero img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+    }
+    .intro-card{
+      position:absolute;
+      left:50%;
+      top:60%;
+      transform:translate(-50%, -50%);
+      background:var(--cream);
+      padding:28px 36px;
+      max-width:720px;
+      border:1px solid rgba(0,0,0,0.04);
+      box-shadow:0 6px 24px rgba(0,0,0,0.06);
+      text-align:center;
+    }
+    .intro-card h1{
+      font-family:'Playfair Display';
+      margin:0 0 8px 0;
+      color:var(--deep-sage);
+    }
+    .intro-card p{
+      margin:0 0 12px 0;
+      color:#6b6b6b;
+    }
+    .btn{
+      display:inline-block;
+      background:var(--peach);
+      padding:8px 14px;
+      border-radius:3px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:600;
+    }
+
+    /* THREE BOXES */
+    .three-boxes{
+      display:flex;
+      gap:18px;
+      padding:28px 40px;
+    }
+    .card{
+      flex:1;
+      height:120px;
+      position:relative;
+      overflow:hidden;
+      border-radius:6px;
+    }
+    .card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      position:absolute;
+      top:0; left:0;
+    }
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.35);
+    }
+    .card span{
+      position:absolute;
+      bottom:10px;
+      left:12px;
+      color:#fff;
+      font-weight:600;
+      z-index:3;
+      font-size:16px;
+    }
+
+    /* SUBSCRIBE */
+    .subscribe{
+      background:var(--peach);
+      padding:28px 40px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:18px;
+    }
+    .subscribe input{
+      padding:10px;
+      border:1px solid rgba(0,0,0,0.08);
+      border-radius:3px;
+    }
+    .subscribe button{
+      background:var(--accent);
+      border:none;
+      padding:10px 16px;
+      border-radius:3px;
+    }
+    .subscribe form{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    /* CONTENT SECTIONS */
+    .content-section{
+      padding:32px 40px;
+      display:flex;
+      gap:24px;
+      align-items:center;
+    }
+    .content-section .text{
+      flex:1;
+      transform: translateX(-70px);
+      background:var(--cream);
+      padding:22px;
+      border:1px solid rgba(0,0,0,0.04);
+    }
+    .content-section .text1{
+      flex:1;
+      transform: translateX(70px);
+      background:var(--cream);
+      padding:22px;
+      border:1px solid rgba(0,0,0,0.04);
+    }
+    .content-section .img{flex:1}
+    .content-section img{
+      width:400PX;
+      height:300px;
+      object-fit:cover;
+      border-radius:4px;
+    }
+    .content-section.alt{
+      flex-direction:row-reverse;
+    }
+
+    /* POPULAR POSTS */
+    .popular {
+      padding: 60px 20px;
+      background: var(--sage);
+      display: flex;
+      justify-content: center;
+    }
+
+    .popular-inner {
+      background: var(--deep-sage);
+      color: #fff;
+      width: 100%;
+      max-width: 880px;
+      padding: 48px 38px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .popular-inner h3 {
+      margin: 0 0 30px 0;
+      font-family: "Playfair Display";
+      font-size: 24px;
+    }
+
+    .popular-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 34px;
+    }
+
+    .popular-item {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .popular-item img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .overlay-box {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -22px;
+      width: 80%;
+      background: var(--cream);
+      padding: 18px 22px;
+      border-radius: 6px;
+      text-align: center;
+      box-shadow: 0 12px 22px rgba(0,0,0,0.18);
+    }
+
+    .overlay-box h4 {
+      margin: 0 0 6px 0;
+      font-size: 15px;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .overlay-box a.btn {
+      padding: 8px 14px;
+      font-size: 12px;
+      background: var(--deep-sage);
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      .popular-grid {
+        grid-template-columns: 1fr;
+      }
+      .popular-item img {
+        height: 240px;
+      }
+      .overlay-box {
+        width: 90%;
+        bottom: -18px;
+      }
+    }
+
+    /* FOOTER */
+    footer{
+      background:var(--peach);
+      padding:28px 40px;
+      text-align:center;
+    }
+
+    footer .social{
+      margin-top:12px;
+      display:flex;
+      justify-content:center;
+      gap:14px;
+    }
+
+    footer .social a{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--deep-sage);
+      color:#fff;
+      text-decoration:none;
+      font-size:18px;
+      transition:0.25s ease;
+    }
+
+    footer .social a:hover{
+      background:#fff;
+      color:var(--deep-sage);
+    }
+
+    /* MOBILE */
+    @media (max-width:880px){
+      .three-boxes{flex-direction:column}
+      .content-section{flex-direction:column}
+      .content-section.alt{flex-direction:column}
+      .hero img{height:220px}
+      .intro-card{
+        position:static;
+        transform:none;
+        margin:-40px auto 0;
+      }
+    }
+
+    /* Solid border */
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div>
+        <div class="brand">Amber Smith</div>
+        <div class="tagline">Beauty • Travel • Lifestyle</div>
+      </div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About Me</a>
+        <a href="#">Shop My Insta</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <img src="./images/img1.avif" alt="hero image">
+      <div class="intro-card">
+        <h1>Introduction Goes Here</h1>
+        <p>Short description or site intro. Lorem ipsum dolor sit amet.</p>
+        <a class="btn" href="#">Read More</a>
+      </div>
+    </section>
+
+    <!-- THREE BOXES -->
+    <section class="three-boxes">
+      <div class="card">
+        <img src="./images/img8.jpg" alt="post image">
+        <span>Travel</span>
+      </div>
+      <div class="card">
+        <img src="./images/img7.jpg" alt="post image">
+        <span>Lifestyle</span>
+      </div>
+      <div class="card">
+        <img src="./images/img9.jpg" alt="post image">
+        <span>Home</span>
+      </div>
+    </section>
+
+    <!-- SUBSCRIBE -->
+    <section class="subscribe">
+      <div class="left">
+        <h3>Download My Monthly Planner</h3>
+        <div style="font-size:12px;color:var(--muted)">Sign up to receive this printable for free</div>
+      </div>
+      <form>
+        <input type="text" placeholder="Full name">
+        <input type="email" placeholder="Email address">
+        <button type="button">Subscribe</button>
+      </form>
+    </section>
+
+    <!-- CONTENT ROW 1 -->
+    <section class="content-section">
+      <div class="img">
+        <img src="./images/img2.jpg" alt="post image">
+      </div>
+      <div class="text">
+        <h3>Lorem ipsum dolor sit amet</h3>
+        <hr class="solid">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a class="btn" href="#">Read More</a>
+      </div>
+    </section>
+
+    <!-- CONTENT ROW 2 -->
+    <section class="content-section alt">
+      <div class="img">
+        <img src="./images/img4.avif" alt="post image">
+      </div>
+      <div class="text1">
+        <h3>Lorem ipsum dolor sit amet</h3>
+        <hr class="solid">
+        <p>Curabitur sodales ligula in libero. Sed dignissim lacinia nunc.</p>
+        <a class="btn" href="#">Read More</a>
+      </div>
+    </section>
+
+    <!-- CONTENT ROW 3 -->
+    <section class="content-section">
+      <div class="img">
+        <img src="./images/img3.jpeg" alt="post image">
+      </div>
+      <div class="text">
+        <h3>Lorem ipsum dolor sit amet</h3>
+        <hr class="solid">
+        <p>Sed cursus ante dapibus diam. Sed nisi.</p>
+        <a class="btn" href="#">Read More</a>
+      </div>
+    </section>
+
+    <!-- POPULAR POSTS -->
+    <section class="popular">
+      <div class="popular-inner">
+        <h3>Popular Posts</h3>
+
+        <div class="popular-grid">
+
+          <div class="popular-item">
+            <img src="./images/img5.jpg" alt="Popular 1">
+            <div class="overlay-box">
+              <h4>Lorem ipsum dolor</h4>
+              <a class="btn" href="#">Read More</a>
+            </div>
+          </div>
+
+          <div class="popular-item">
+            <img src="./images/img6.jpg" alt="Popular 2">
+            <div class="overlay-box">
+              <h4>Lorem ipsum dolor</h4>
+              <a class="btn" href="#">Read More</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div style="font-family:'Playfair Display';font-size:18px;margin-bottom:8px">Get The Latest</div>
+      <div style="margin-bottom:12px">Sign up for updates</div>
+
+      <div class="social">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-pinterest"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
